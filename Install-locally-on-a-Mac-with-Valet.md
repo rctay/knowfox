@@ -44,7 +44,7 @@ MAIL_USERNAME=111111111111
 MAIL_PASSWORD=azazazazazaz
 ````
 
-Save and exit. Next you need to create an application key with `php artisan key:generate`. You are now ready to create a database with `echo "create database knowfox2" | mysql -uroot -proot` and `php artisan migrate`. 
+Save and exit. Next you need to create an application key with `php artisan key:generate`. You are now ready to create a database with `echo "create database knowfox" | mysql -uroot -proot` and `php artisan migrate`. 
 
 With that, you can open Knowfox in your browser at `http://knowfox.app`. This is what it looks like:
 
