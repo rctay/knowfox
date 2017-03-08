@@ -46,6 +46,11 @@ MAIL_PASSWORD=azazazazazaz
 
 Save and exit. Next you need to create an application key with `php artisan key:generate`. You are now ready to create a database with `echo "create database knowfox" | mysql -uroot -proot` and `php artisan migrate`. 
 
+Two more steps are needed to build and install the frontend stuff and fonts:
+
+* `npm install`
+* `npm run production`
+
 With that, you can open Knowfox in your browser at `http://knowfox.app`. This is what it looks like:
 
 ![home](https://raw.githubusercontent.com/oschettler/knowfox/doc/home.png)
