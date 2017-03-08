@@ -63,15 +63,15 @@ After registration, you are redirected to the list of concepts:
 
 ![concepts](https://raw.githubusercontent.com/oschettler/knowfox/doc/concepts.png)
 
+To start journaling, you first need to create a Journal root:
+
+![journal](https://raw.githubusercontent.com/oschettler/knowfox/doc/journal.png)
+
 At this point, you have a few options:
 
 * Start a journal by clicking on the current date. 
 * Create a new concept
 * Install the bookmarklet into your browser's bookmark bar and start collecting bookmarks.
-
-To start journaling, you first need to create a Journal root:
-
-![journal](https://raw.githubusercontent.com/oschettler/knowfox/doc/journal.png)
 
 This concludes our first installment on how to get started with Knowfox.
 
