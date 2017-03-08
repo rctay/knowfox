@@ -25,7 +25,7 @@ If you use Chrome as your browser, you can double click on the file you just dow
 
 In your _Terminal window, `cd ~/Sites/knowfox`, then `composer install`. This will download all the dependencies and will take a few seconds. Now, you will configure Knowfox by setting up a file `.env`. Copy the example over with `cp .env.example .env` and edit it with `nano .env`.
 
-![dot-env](dot-env.png?style=square)
+![dot-env](https://raw.githubusercontent.com/oschettler/knowfox/doc/dot-env.png)
 
 You will need to edit only a few things here. First, the database credentials.
 
@@ -37,7 +37,7 @@ DB_PASSWORD=root
 
 Next, you need to set up a mailer to be able to register yourself a user. The easiest is to use a free account with [mailtrap.io](https://mailtrap.io). Create yourself a free account there and enter the username and password:
 
-![mailtrap](mailtrap.png?style=square)
+![mailtrap](https://raw.githubusercontent.com/oschettler/knowfox/doc/mailtrap.png)
 
 ````
 MAIL_USERNAME=111111111111
@@ -48,15 +48,15 @@ Save and exit. Next you need to create an application key with `php artisan key:
 
 With that, you can open Knowfox in your browser at `http://knowfox.app`. This is what it looks like:
 
-![home](home.png?style=square)
+![home](https://raw.githubusercontent.com/oschettler/knowfox/doc/home.png)
 
 Click on _Register_ and create yourself a user:
 
-![register](register.png?style=square)
+![register](https://raw.githubusercontent.com/oschettler/knowfox/doc/register.png)
 
 After registration, you are redirected to the list of concepts:
 
-![concepts](concepts.png?style=square)
+![concepts](https://raw.githubusercontent.com/oschettler/knowfox/doc/concepts.png)
 
 At this point, you have a few options:
 
