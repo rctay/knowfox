@@ -73,6 +73,10 @@ At this point, you have a few options:
 * Create a new concept
 * Install the bookmarklet into your browser's bookmark bar and start collecting bookmarks.
 
+Here is what a journal entry looks like:
+
+![entry](https://raw.githubusercontent.com/oschettler/knowfox/doc/entry.png)
+
 This concludes our first installment on how to get started with Knowfox.
 
 Know more and have fun,
