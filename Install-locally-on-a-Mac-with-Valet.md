@@ -69,6 +69,10 @@ At this point, you have a few options:
 * Create a new concept
 * Install the bookmarklet into your browser's bookmark bar and start collecting bookmarks.
 
+To start journaling, you first need to create a Journal root:
+
+![journal](https://raw.githubusercontent.com/oschettler/knowfox/doc/journal.png)
+
 This concludes our first installment on how to get started with Knowfox.
 
 Know more and have fun,
