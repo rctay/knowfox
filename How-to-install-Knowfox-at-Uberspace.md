@@ -124,7 +124,7 @@ Here is what a journal entry looks like:
 
 ![entry](https://raw.githubusercontent.com/oschettler/knowfox/doc/entry.png)
 
-This concludes our first installment on how to get started with Knowfox.
+This concludes the second variant of how to get started with Knowfox.
 
 Know more and have fun,
 
