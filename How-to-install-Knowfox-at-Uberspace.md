@@ -1,4 +1,4 @@
-**Uberspace** is a high quality German Internet Service Provider. They are special in that they provide very competitive features of a fully managed web hosting package for a very good price. In particular, you get 10GB space for your data and media. Also, they do provide full SSH access which is required for installing Knowfox.
+**Uberspace** is a high quality German Hosting Service Provider. They are special in that they provide very competitive features of a fully managed web hosting package for a very good price. In particular, you get 10GB space for your data and media. Also, they do provide full SSH access which is required for installing Knowfox.
 
 Here we go ...
 
