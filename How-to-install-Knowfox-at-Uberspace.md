@@ -64,23 +64,27 @@ mv public html
 cp ~/knowfox-0.2.2/.env.example .env
 
 cat ~/.my.cnf
-# take note of 2nd password
+````
 
-## Edit the file ".env" and change the following values
-## Change "olav" to your account name
-# DB_DATABASE=olav
-# DB_USERNAME=olav
-## Enter the password from .my.cnf here 
-# DB_PASSWORD=xyzxyzxzy
-nano .env
+take note of 2nd password
+
+Edit the file ".env" with the command `nano .env` and change the following values (Change "olav" to your account name)
+
+````
+DB_DATABASE=olav
+DB_USERNAME=olav
+DB_PASSWORD=xyzxyzxzy
+````
 
 Next, you need to set up a mailer to be able to register yourself a user. The easiest is to use a free account with mailtrap.io. Create yourself a free account there and enter the username and password:
 
 ![mailtrap](https://raw.githubusercontent.com/oschettler/knowfox/doc/mailtrap.png)
 
-## From this, change the following two variables in .env
-# MAIL_USERNAME=111111111111
-# MAIL_PASSWORD=azazazazazaz
+From this, change the following two variables in .env
+
+````
+MAIL_USERNAME=111111111111
+MAIL_PASSWORD=azazazazazaz
 ````
 
 Save and exit the editor. Next you need to create an application key and set up the database:
@@ -89,14 +93,12 @@ Save and exit the editor. Next you need to create an application key and set up 
 php artisan key:generate
 php artisan migrate
 ````
- 
-Save and exit. Next you need to create an application key with `php artisan key:generate`. You are now ready to create a database with `echo "create database knowfox" | mysql -uroot -proot` and `php artisan migrate`. 
 
-Two more steps are needed to build and install the frontend stuff and fonts:
+One more step is needed to build and install the frontend stuff:
 
 * `npm install`
 
-With that, you can open Knowfox in your browser at `http://knowfox.app`. This is what it looks like:
+With that, you can open Knowfox in your browser at `https://olav.hadar.uberspace.de/`. This is what it looks like:
 
 ![home](https://raw.githubusercontent.com/oschettler/knowfox/doc/home.png)
 
