@@ -87,6 +87,12 @@ MAIL_USERNAME=111111111111
 MAIL_PASSWORD=azazazazazaz
 ````
 
+If you want to use the bookmarklet, there is one other thing to include into your .env file. To extract the text and some metadata from bookmarked pages, Knowfox uses a [free service from Postlight](https://mercury.postlight.com/web-parser/). Please create yourself an account there and include their key into your .env file:
+
+````
+MERCURY_KEY=123412341234 
+````
+
 Save and exit the editor. Next you need to create an application key and set up the database:
 
 ````
