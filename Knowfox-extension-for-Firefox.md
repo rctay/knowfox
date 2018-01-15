@@ -1,0 +1,1 @@
+Once the Firefox extension is installed, just click on the Fox icon to bookmark a web page. You have to be logged into Knowfox for this to work.
