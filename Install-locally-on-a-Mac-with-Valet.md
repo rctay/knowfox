@@ -44,6 +44,13 @@ MAIL_USERNAME=111111111111
 MAIL_PASSWORD=azazazazazaz
 ````
 
+Finally, if you want to use bookmarking, you need to enter an application key for [Mercury](https://mercury.postlight.com/web-parser/). Bookmarking uses this service to extract the content and key image from the bookmarked resource. Again, create yourself a free account there and enter the application key into your `.env` file:
+
+````
+# https://mercury.postlight.com/web-parser/
+MERCURY_KEY=abcdef1234567890
+````
+
 Save and exit. Next you need to create an application key with `php artisan key:generate`. You are now ready to create a database with `echo "create database knowfox" | mysql -uroot -proot` and `php artisan migrate`. 
 
 Two more steps are needed to build and install the frontend stuff and fonts:
