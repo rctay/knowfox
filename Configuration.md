@@ -9,7 +9,10 @@ Configuration is merged from three places:
 * Packages, e.g. the package `knowfox/entangle`
 * the `data` field of a user-specific top-level concept titled `Configuration`. This field is formated as a [YAML](http://yaml.org/) object.
 
-If you want to seed your relationships with some entries, here is my list:
+If you want to seed your relationships with some entries, add a toplevel concept `Configuration`. 
+Then, add an entry `relationships` as settings data.
+
+Here is _my_ list:
 
 ````
 relationships:
