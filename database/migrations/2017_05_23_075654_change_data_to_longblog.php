@@ -15,7 +15,14 @@ class ChangeDataToLongblog extends Migration
     public function up()
     {
         Schema::table('versions', function (Blueprint $table) {
-            DB::statement('ALTER TABLE versions CHANGE model_data model_data LONGBLOB NOT NULL');
+            switch (config('database.default')) {
+                case 'mysql':
+                    DB::statement('ALTER TABLE versions CHANGE model_data model_data LONGBLOB NOT NULL');
+                    break;
+                case 'pgsql':
+                    // $table->binary('model_data') is already of type BYTEA
+                    break;
+            }
         });
     }
 
