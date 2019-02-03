@@ -1,0 +1,7 @@
+{
+  "WEBDIR": "public",
+  "COMPOSER_VENDOR_DIR": "vendor",
+  "ADDITIONAL_PREPROCESS_CMDS": [
+    "php artisan migrate"
+  ]
+}
