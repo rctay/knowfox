@@ -2,7 +2,10 @@
 /public/storage
 /public/hot
 /public/css/app.css
+/public/css/reveal.css
+/public/css/reveal-theme
 /public/js/app.js
+/public/js/reveal.js
 /storage/*.key
 /storage/debugbar
 /vendor
