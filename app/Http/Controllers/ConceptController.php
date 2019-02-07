@@ -25,6 +25,7 @@ use Knowfox\Http\Requests\ConceptRequest;
 use Knowfox\Jobs\PublishPresentation;
 use Knowfox\Models\Concept;
 use Illuminate\Http\Request;
+use Knowfox\Repositories\ConceptRepository;
 use Knowfox\Services\PictureService;
 use Validator;
 use Ramsey\Uuid\Uuid;
@@ -36,6 +37,13 @@ class ConceptController extends Controller
     private static $validateImageRules = [
         'upload' => 'sometimes|image|mimes:jpeg,png|min:1|max:10000',
     ];
+
+    protected $conceptRepository;
+
+    public function __construct(ConceptRepository $conceptRepository)
+    {
+        $this->conceptRepository = $conceptRepository;
+    }
 
     public function toplevel(Request $request)
     {
@@ -128,17 +136,13 @@ class ConceptController extends Controller
 
         if ($request->has('q')) {
             $search_term = $request->input('q');
-            $concepts->whereRaw(
-                'MATCH(title,summary,body) AGAINST(? IN NATURAL LANGUAGE MODE)', [$search_term]
-            );
+            $this->conceptRepository->withFullTextSearchFragment($concepts, $search_term);
         }
 
         // jquery-ui.autocomplete
         if ($request->has('term')) {
             $search_term = $request->input('term');
-            $concepts->whereRaw(
-                'MATCH(title,summary,body) AGAINST(? IN NATURAL LANGUAGE MODE)', [$search_term]
-            );
+            $this->conceptRepository->withFullTextSearchFragment($concepts, $search_term);
         }
 
         if ($request->has('except')) {
