@@ -1,5 +1,22 @@
 <?php
 
+# Source: https://github.com/cloudfoundry-samples/cf-ex-phpmyadmin/blob/master/htdocs/config.inc.php#L27
+$service_blob = json_decode($_ENV['VCAP_SERVICES'], true);
+$mysql_services = array();
+$pgsql_services = array();
+foreach($service_blob as $service_provider => $service_list) {
+    foreach ($service_list as $some_service) {
+        if (in_array('mysql', $some_service['tags'], true)) {
+            $mysql_services[] = $some_service;
+            continue;
+        }
+        if (in_array('postgresql', $some_service['tags'], true)) {
+            $pgsql_services[] = $some_service;
+            continue;
+        }
+    }
+}
+
 return [
 
     /*
@@ -41,11 +58,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => $mysql_services[0]['credentials']['hostname'],
+            'port' => $mysql_services[0]['credentials']['port'],
+            'database' => $mysql_services[0]['credentials']['name'],
+            'username' => $mysql_services[0]['credentials']['username'],
+            'password' => $mysql_services[0]['credentials']['password'],
             /*
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
@@ -78,17 +95,16 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => parse_url($pgsql_services[0]['credentials']['uri'])['host'],
+            'port' => parse_url($pgsql_services[0]['credentials']['uri'])['port'],
+            'database' => trim(parse_url($pgsql_services[0]['credentials']['uri'])['path'], '/'),
+            'username' => parse_url($pgsql_services[0]['credentials']['uri'])['user'],
+            'password' => parse_url($pgsql_services[0]['credentials']['uri'])['pass'],
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-
     ],
 
     /*

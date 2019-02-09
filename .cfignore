@@ -1,0 +1,10 @@
+.git
+.idea
+node_modules
+vendor
+public/presentation
+storage/debugbar/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*

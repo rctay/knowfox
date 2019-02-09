@@ -1,5 +1,17 @@
 <?php
 
+# Source: https://github.com/cloudfoundry-samples/cf-ex-phpmyadmin/blob/master/htdocs/config.inc.php
+$service_blob = json_decode($_ENV['VCAP_SERVICES'], true);
+$smtp_services = array();
+foreach($service_blob as $service_provider => $service_list) {
+    foreach ($service_list as $some_service) {
+        if (in_array('smtp', $some_service['tags'], true)) {
+            $smtp_services[] = $some_service;
+            continue;
+        }
+    }
+}
+
 return [
 
     /*
@@ -29,7 +41,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => $smtp_services[0]['credentials']['hostname'],
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +96,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => $smtp_services[0]['credentials']['username'],
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => $smtp_services[0]['credentials']['password'],
 
     /*
     |--------------------------------------------------------------------------

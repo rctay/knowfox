@@ -5,12 +5,16 @@ namespace Knowfox\Http\Controllers;
 use Illuminate\Http\Request;
 use Knowfox\Models\Concept;
 use Knowfox\Http\Resources\Concept as ConceptResource;
+use Knowfox\Repositories\ConceptRepository;
 
 class ApiController extends Controller
 {
-    public function __construct(Request $request)
+    protected $conceptRepository;
+
+    public function __construct(Request $request, ConceptRepository $conceptRepository)
     {
         $this->setAuthMiddleware($request);
+        $this->conceptRepository = $conceptRepository;
     }
 
     public function show(Concept $concept, Request $request)
@@ -38,9 +42,7 @@ class ApiController extends Controller
 
         if ($request->has('q')) {
             $search_term = $request->input('q');
-            $children->whereRaw(
-                'MATCH(title,summary,body) AGAINST(? IN NATURAL LANGUAGE MODE)', [$search_term]
-            );
+            $this->conceptRepository->withFullTextSearchFragment($children, $search_term);
         }
 
         return response([

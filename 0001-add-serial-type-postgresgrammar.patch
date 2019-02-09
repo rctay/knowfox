@@ -1,0 +1,16 @@
+diff --git a/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/PostgresGrammar.php b/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/PostgresGrammar.php
+index 795d4b8..5c1d73f 100755
+--- a/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/PostgresGrammar.php
++++ b/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/PostgresGrammar.php
+@@ -716,6 +716,11 @@ class PostgresGrammar extends Grammar
+         return $this->formatPostGisType('multipolygon');
+     }
+ 
++    protected function typeSerial(Fluent $column)
++    {
++        return 'serial';
++    }
++
+     /**
+      * @param  string  $type
+      * @return string

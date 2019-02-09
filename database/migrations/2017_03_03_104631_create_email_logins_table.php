@@ -17,6 +17,12 @@ class CreateEmailLoginsTable extends Migration
             $table->string('email')->index();
             $table->string('token')->index();
             $table->timestamps();
+            switch (config('database.default')) {
+                case 'pgsql':
+                    // fix /login due to insertGetId appends 'returning "id"' to sql
+                    $table->addColumn('serial', 'id');
+                    break;
+            }
         });
     }
 

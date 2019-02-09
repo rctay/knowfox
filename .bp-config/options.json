@@ -1,0 +1,8 @@
+{
+  "WEBDIR": "public",
+  "COMPOSER_VENDOR_DIR": "vendor",
+  "ADDITIONAL_PREPROCESS_CMDS": [
+    "patch -p1 --input 0001-add-serial-type-postgresgrammar.patch --batch",
+    "php artisan migrate"
+  ]
+}
